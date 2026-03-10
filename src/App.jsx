@@ -268,6 +268,39 @@ export default function Portfolio() {
           border-radius: 50%;
           background: radial-gradient(circle, rgba(158,111,255,0.45), transparent 65%);
         }
+        .profile-card {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 28px;
+        }
+        .profile-image-wrap {
+          position: relative;
+          display: inline-flex;
+          padding: 6px;
+          border-radius: 999px;
+          background: linear-gradient(135deg, rgba(217,209,255,0.95), rgba(99,215,255,0.7));
+          box-shadow: 0 18px 60px rgba(102, 126, 234, 0.22);
+        }
+        .profile-image-wrap::before {
+          content: "";
+          position: absolute;
+          inset: -10px;
+          border-radius: 999px;
+          background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 65%);
+          z-index: 0;
+        }
+        .profile-image {
+          position: relative;
+          z-index: 1;
+          width: 190px;
+          height: 190px;
+          border-radius: 999px;
+          object-fit: cover;
+          display: block;
+          border: 3px solid rgba(255,255,255,0.16);
+          box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+        }
         .mini-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -463,6 +496,7 @@ export default function Portfolio() {
           .btn { width: 100%; }
           .mini-grid, .skill-grid { grid-template-columns: 1fr; }
           .hero-card, .project-card, .contact-card { padding: 20px; }
+          .profile-image { width: 150px; height: 150px; }
         }
       `}</style>
 
@@ -485,7 +519,12 @@ export default function Portfolio() {
 
       <main>
         <section className="hero container">
-          <motion.div initial="hidden" animate="show" variants={fadeUp} transition={{ duration: 0.7 }}>
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={fadeUp}
+            transition={{ duration: 0.7 }}
+          >
             <div className="eyebrow">Information Systems • Analytics • Marketing • Operations</div>
             <h1 className="hero-title">
               Building
@@ -502,40 +541,41 @@ export default function Portfolio() {
               and help teams make better decisions.
             </p>
             <div className="hero-buttons">
-              <a href="#work" className="btn btn-solid">View Work <ArrowUpRight size={16} /></a>
+              <a href="#work" className="btn btn-solid">
+                View Work <ArrowUpRight size={16} />
+              </a>
               <a href="#contact" className="btn btn-ghost">Contact Me</a>
             </div>
           </motion.div>
 
           <motion.div
             className="hero-side"
-            style={{alignItems:"center"}}
-          >
-            <div className="glass hero-card" style={{display:"flex",justifyContent:"center",alignItems:"center",padding:"28px"}}>
-              <img
-                src="/profile.jpg"
-                alt="Yash Shimpi"
-                style={{
-                  width:"190px",
-                  height:"190px",
-                  borderRadius:"50%",
-                  objectFit:"cover",
-                  border:"3px solid rgba(255,255,255,0.18)",
-                  boxShadow:"0 20px 60px rgba(0,0,0,0.45)"
-                }}
-              />
-            </div>
-
-            <motion.div
-            className="hero-side"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
           >
+            <div className="glass hero-card profile-card">
+              <div className="profile-image-wrap">
+                <img
+                  src="/profile.jpg"
+                  alt="Yash Shimpi"
+                  className="profile-image"
+                />
+              </div>
+            </div>
+
             <div className="glass hero-card large">
               <div>
                 <div className="eyebrow">Focus Areas</div>
-                <h3 style={{ margin: 0, fontSize: "2rem", lineHeight: 1.02, letterSpacing: "-0.05em", textTransform: "uppercase" }}>
+                <h3
+                  style={{
+                    margin: 0,
+                    fontSize: "2rem",
+                    lineHeight: 1.02,
+                    letterSpacing: "-0.05em",
+                    textTransform: "uppercase",
+                  }}
+                >
                   Analytics,
                   <br />
                   Operations,
@@ -564,7 +604,13 @@ export default function Portfolio() {
         </section>
 
         <section id="about" className="section container two-col">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }}>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="eyebrow">About</div>
             <h2 className="section-title">
               More than
@@ -575,7 +621,14 @@ export default function Portfolio() {
             </h2>
           </motion.div>
 
-          <motion.div className="stack" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.65, delay: 0.08 }}>
+          <motion.div
+            className="stack"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.65, delay: 0.08 }}
+          >
             <p className="body-text">
               My work sits between business thinking and creative execution. I enjoy turning messy data into useful dashboards,
               improving workflows with automation, and building campaigns that are backed by measurable outcomes.
@@ -606,7 +659,14 @@ export default function Portfolio() {
         </section>
 
         <section id="work" className="section container">
-          <motion.div className="section-head" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.65 }}>
+          <motion.div
+            className="section-head"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.65 }}
+          >
             <div>
               <div className="eyebrow">Selected Work</div>
               <h2 className="section-title">
@@ -646,7 +706,13 @@ export default function Portfolio() {
         </section>
 
         <section id="experience" className="section container two-col">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }}>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="eyebrow">Experience</div>
             <h2 className="section-title">
               What I’ve
@@ -677,7 +743,13 @@ export default function Portfolio() {
         </section>
 
         <section id="contact" className="section container">
-          <motion.div className="glass contact-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.65 }}>
+          <motion.div
+            className="glass contact-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.65 }}
+          >
             <div className="contact-left">
               <div className="eyebrow">Contact</div>
               <h2 className="section-title">
@@ -694,15 +766,21 @@ export default function Portfolio() {
 
             <div className="contact-links">
               <a href="mailto:ygshimpi18@gmail.com" className="contact-link">
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}><Mail size={16} /> ygshimpi18@gmail.com</span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+                  <Mail size={16} /> ygshimpi18@gmail.com
+                </span>
                 <ArrowUpRight size={16} />
               </a>
               <a href="https://linkedin.com/in/yashshimpi" target="_blank" rel="noreferrer" className="contact-link">
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}><Linkedin size={16} /> LinkedIn</span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+                  <Linkedin size={16} /> LinkedIn
+                </span>
                 <ArrowUpRight size={16} />
               </a>
               <a href="/resume.pdf" target="_blank" rel="noreferrer" className="contact-link">
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}><FileText size={16} /> Resume PDF</span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+                  <FileText size={16} /> Resume PDF
+                </span>
                 <ArrowUpRight size={16} />
               </a>
             </div>
