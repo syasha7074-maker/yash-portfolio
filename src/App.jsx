@@ -509,6 +509,25 @@ export default function Portfolio() {
 
           <motion.div
             className="hero-side"
+            style={{alignItems:"center"}}
+          >
+            <div className="glass hero-card" style={{display:"flex",justifyContent:"center",alignItems:"center",padding:"28px"}}>
+              <img
+                src="/profile.jpg"
+                alt="Yash Shimpi"
+                style={{
+                  width:"190px",
+                  height:"190px",
+                  borderRadius:"50%",
+                  objectFit:"cover",
+                  border:"3px solid rgba(255,255,255,0.18)",
+                  boxShadow:"0 20px 60px rgba(0,0,0,0.45)"
+                }}
+              />
+            </div>
+
+            <motion.div
+            className="hero-side"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
