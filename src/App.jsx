@@ -512,6 +512,7 @@ export default function Portfolio() {
             <a href="#about">About</a>
             <a href="#work">Work</a>
             <a href="#experience">Experience</a>
+            <a href="#resume">Resume</a>
             <a href="#contact">Contact</a>
           </nav>
         </div>
@@ -740,6 +741,56 @@ export default function Portfolio() {
               </motion.div>
             ))}
           </div>
+        </section>
+
+        <section id="resume" className="section container">
+          <motion.div
+            className="glass contact-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.65 }}
+          >
+            <div className="contact-left">
+              <div className="eyebrow">Resume</div>
+              <h2 className="section-title">
+                View My
+                <br />
+                Professional
+                <br />
+                Resume
+              </h2>
+              <p>
+                You can view or download my resume to learn more about my background in
+                analytics, marketing, automation, and operations.
+              </p>
+            </div>
+
+            <div className="contact-links">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="contact-link"
+              >
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+                  <FileText size={16} /> View Resume
+                </span>
+                <ArrowUpRight size={16} />
+              </a>
+
+              <a
+                href="/resume.pdf"
+                download
+                className="contact-link"
+              >
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+                  <FileText size={16} /> Download Resume
+                </span>
+                <ArrowUpRight size={16} />
+              </a>
+            </div>
+          </motion.div>
         </section>
 
         <section id="contact" className="section container">
